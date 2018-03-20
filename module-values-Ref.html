@@ -40,7 +40,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Client.html">Client</a></li><li><a href="Expr.html">Expr</a></li><li><a href="module-errors-BadRequest.html">errors~BadRequest</a></li><li><a href="module-errors-FaunaError.html">errors~FaunaError</a></li><li><a href="module-errors-FaunaHTTPError.html">errors~FaunaHTTPError</a></li><li><a href="module-errors-InternalError.html">errors~InternalError</a></li><li><a href="module-errors-InvalidArity.html">errors~InvalidArity</a></li><li><a href="module-errors-InvalidValue.html">errors~InvalidValue</a></li><li><a href="module-errors-MethodNotAllowed.html">errors~MethodNotAllowed</a></li><li><a href="module-errors-NotFound.html">errors~NotFound</a></li><li><a href="module-errors-PermissionDenied.html">errors~PermissionDenied</a></li><li><a href="module-errors-Unauthorized.html">errors~Unauthorized</a></li><li><a href="module-errors-UnavailableError.html">errors~UnavailableError</a></li><li><a href="module-values-Bytes.html">values~Bytes</a></li><li><a href="module-values-FaunaDate.html">values~FaunaDate</a></li><li><a href="module-values-FaunaTime.html">values~FaunaTime</a></li><li><a href="module-values-Ref.html">values~Ref</a></li><li><a href="module-values-SetRef.html">values~SetRef</a></li><li><a href="module-values-Value.html">values~Value</a></li><li><a href="PageHelper.html">PageHelper</a></li><li><a href="RequestResult.html">RequestResult</a></li>
+					<li><a href="Client.html">Client</a></li><li><a href="Expr.html">Expr</a></li><li><a href="module-errors-BadRequest.html">errors~BadRequest</a></li><li><a href="module-errors-FaunaError.html">errors~FaunaError</a></li><li><a href="module-errors-FaunaHTTPError.html">errors~FaunaHTTPError</a></li><li><a href="module-errors-InternalError.html">errors~InternalError</a></li><li><a href="module-errors-InvalidArity.html">errors~InvalidArity</a></li><li><a href="module-errors-InvalidValue.html">errors~InvalidValue</a></li><li><a href="module-errors-MethodNotAllowed.html">errors~MethodNotAllowed</a></li><li><a href="module-errors-NotFound.html">errors~NotFound</a></li><li><a href="module-errors-PermissionDenied.html">errors~PermissionDenied</a></li><li><a href="module-errors-Unauthorized.html">errors~Unauthorized</a></li><li><a href="module-errors-UnavailableError.html">errors~UnavailableError</a></li><li><a href="module-values-Bytes.html">values~Bytes</a></li><li><a href="module-values-FaunaDate.html">values~FaunaDate</a></li><li><a href="module-values-FaunaTime.html">values~FaunaTime</a></li><li><a href="module-values-Query.html">values~Query</a></li><li><a href="module-values-Ref.html">values~Ref</a></li><li><a href="module-values-SetRef.html">values~SetRef</a></li><li><a href="module-values-Value.html">values~Value</a></li><li><a href="PageHelper.html">PageHelper</a></li><li><a href="RequestResult.html">RequestResult</a></li>
 				</ul>
 			</li>
 			
@@ -100,7 +100,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Ref"><span class="type-signature"></span>new Ref(valueOrParent, id)</h4>
+    <h4 class="name" id="Ref"><span class="type-signature"></span>new Ref(id [, clazz] [, database])</h4>
     
     
 </dt>
@@ -110,10 +110,6 @@
     <div class="description">
         <p>FaunaDB ref.
 See the <a href="https://fauna.com/documentation/queries#values-special_types">docs</a>.</p>
-<p>A simple wrapper around a string which can be extracted using <code>ref.value</code>.
-Queries that require a Ref will not work if you just pass in a string.</p>
-<p>You can create a Ref from a string, such as <code>new Ref('databases/prydain')</code>.
-You can also call <code>new Ref('databases', 'prydain')</code> or `new Ref(new Ref('databases'), 'prydain').</p>
     </div>
     
 
@@ -150,41 +146,6 @@ You can also call <code>new Ref('databases', 'prydain')</code> or `new Ref(new R
 
         <tr>
             
-                <td class="name"><code>valueOrParent</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">Ref</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>The string value of the Ref, or the parent portion of the Ref if child is specified.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>id</code></td>
             
 
@@ -203,7 +164,39 @@ You can also call <code>new Ref('databases', 'prydain')</code> or `new Ref(new R
                 
 
                 
-                    &lt;nullable><br>
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The id portion of the ref.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clazz</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Ref</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
                 
 
                 
@@ -212,7 +205,41 @@ You can also call <code>new Ref('databases', 'prydain')</code> or `new Ref(new R
 
             
 
-            <td class="description last"><p>The child portion of the ref.</p></td>
+            <td class="description last"><p>The class portion of the ref.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>database</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Ref</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The database portion of the ref.</p></td>
         </tr>
 
     
@@ -314,9 +341,7 @@ You can also call <code>new Ref('databases', 'prydain')</code> or `new Ref(new R
 <dd>
     
     <div class="description">
-        <p>Gets the class part out of the Ref.
-This is done by removing the id.
-So <code>new Ref('a', 'b/c').class</code> will be <code>new Ref('a/b')</code>.</p>
+        <p>Gets the class part out of the Ref.</p>
     </div>
     
 
@@ -326,6 +351,77 @@ So <code>new Ref('a', 'b/c').class</code> will be <code>new Ref('a/b')</code>.</
             <li>
                 
 <span class="param-type">string</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="database">
+    <h4 id="database"><span class="type-signature"></span>database<span class="type-signature"> :Ref</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Gets the database part out of the Ref.</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Ref</span>
 
 
 
@@ -380,15 +476,14 @@ So <code>new Ref('a', 'b/c').class</code> will be <code>new Ref('a/b')</code>.</
             
 <hr>
 <dt class="name" id="id">
-    <h4 id="id"><span class="type-signature"></span>id<span class="type-signature"> :string</span></h4>
+    <h4 id="id"><span class="type-signature"></span>id<span class="type-signature"> :Ref</span></h4>
 
     
 </dt>
 <dd>
     
     <div class="description">
-        <p>Removes the class part of the Ref, leaving only the id.
-this is everything after the last <code>/</code>.</p>
+        <p>Gets the id part out of the Ref.</p>
     </div>
     
 
@@ -397,78 +492,7 @@ this is everything after the last <code>/</code>.</p>
         <ul>
             <li>
                 
-<span class="param-type">string</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="value">
-    <h4 id="value"><span class="type-signature"></span>value<span class="type-signature"> :string</span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>The string value of the ref.</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">string</span>
+<span class="param-type">Ref</span>
 
 
 
@@ -721,9 +745,9 @@ this is everything after the last <code>/</code>.</p>
 
 
 <span class="jsdoc-message">
-	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
 	
-		on 2017-07-06T20:38:04+00:00
+		on 2018-03-20T22:27:13+00:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
