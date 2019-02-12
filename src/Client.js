@@ -178,9 +178,11 @@ Client.prototype._performRequest = function (action, path, data, query) {
     rq.set('Authorization', secretHeader(this._secret));
   }
 
-  if (this._lastSeen) {
+  // Disable this for the Console app, so history back button functionality doesn't 
+  // throw a CORS error
+  /*if (this._lastSeen) {
     rq.set('X-Last-Seen-Txn', this._lastSeen);
-  }
+  }*/
 
   rq.set('X-FaunaDB-API-Version', '2.1');
 
